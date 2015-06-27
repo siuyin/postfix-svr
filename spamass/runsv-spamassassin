@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /etc/service/spamassassin/spammon.sh 2>&1 >/dev/null

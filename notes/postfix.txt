@@ -1,0 +1,8 @@
+docker run -ti --rm -h bm2.beyondbroadcast.com siuyin/postfix:20150619 bash
+docker run -ti --rm -h bm2.beyondbroadcast.com -v $(pwd)/tmp:/tmp -v $(pwd)/tmp/master.cf:/etc/postfix/master.cf siuyin/postfix:20150619 bash
+docker run -ti --rm -h bm2.beyondbroadcast.com -v $(pwd)/tmp:/tmp -v $(pwd)/tmp/master.cf:/etc/postfix/master.cf -v $(pwd)/tmp/main.cf:/etc/postfix/main.cf siuyin/postfix:20150619 bash
+docker run -ti --rm -h bm2.beyondbroadcast.com -v $(pwd)/tmp:/tmp -v $(pwd)/tmp/master.cf:/etc/postfix/master.cf -v $(pwd)/tmp/main.cf:/etc/postfix/main.cf -p 25:25 siuyin/postfix:20150619 bash
+
+must start in /etc/init.d:
+  rsyslog
+  postfix
