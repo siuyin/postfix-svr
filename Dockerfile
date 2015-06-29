@@ -29,8 +29,8 @@ ADD spamass/spammon.sh /etc/service/spamassassin/
 ADD spamass/runsv-spamassassin /etc/service/spamassassin/run
 ADD 10-config-spamassassin.sh /etc/my_init.d/
 RUN chmod +x /etc/my_init.d/10-config-spamassassin.sh
-#  only set RDNS_NONE 0 if you do not have a trusted networks line above 
-#RUN echo "score RDNS_NONE 0" >> /etc/spamassassin/local.cf
+# If last hop as no rdns RDNS_NONE 0.5 (default 1.274)  
+RUN echo "score RDNS_NONE 0.5" >> /etc/spamassassin/local.cf
 
 # amavisd-new
 RUN sed -i -e's/#@bypass_spam_checks/@bypass_spam_checks/' -e's/#\s\+\\%bypass_spam_checks/   \\%bypass_spam_checks/' /etc/amavis/conf.d/15-content_filter_mode 
