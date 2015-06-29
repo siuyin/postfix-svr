@@ -33,7 +33,7 @@ RUN chmod +x /etc/my_init.d/10-config-spamassassin.sh
 #RUN echo "score RDNS_NONE 0" >> /etc/spamassassin/local.cf
 
 # amavisd-new
-RUN sed -e's/#@bypass/@bypass/;s/#   \\%bypass/   \\%bypass/' /etc/amavis/conf.d/15-content_filter_mode > /tmp/amavis && mv /tmp/amavis /etc/amavis/conf.d/15-content_filter_mode
+RUN sed -i -e's/#@bypass_spam_checks/@bypass_spam_checks/' -e's/#\s\+\\%bypass_spam_checks/   \\%bypass_spam_checks/' /etc/amavis/conf.d/15-content_filter_mode 
 ADD amavis/amavismon.sh /etc/service/amavis/
 ADD amavis/runsv-amavis /etc/service/amavis/run
 
