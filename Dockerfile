@@ -24,7 +24,7 @@ RUN chown mailreader:mail /home/mail
 
 # spamassassin
 RUN sed -i -e 's/ENABLED=0/ENABLED=1/' -e 's/CRON=0/CRON=1/' /etc/default/spamassassin
-RUN mkdir -p /etc/service/spamassassin
+#RUN mkdir -p /etc/service/spamassassin
 # spamd does not need to run - save on memory. Amavisd-new uses spamd libraries internaly!
 #ADD spamass/spammon.sh /etc/service/spamassassin/
 #ADD spamass/runsv-spamassassin /etc/service/spamassassin/run
